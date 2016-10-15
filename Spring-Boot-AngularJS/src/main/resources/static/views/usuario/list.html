@@ -1,0 +1,39 @@
+<div class="section">
+    <h3>{{headingTitle}}</h3>
+	<div class="card-panel">
+		<div class="card-panel-header">
+		</div>
+		<div class="card-panel-body">
+			<div class="card card-small" ng-repeat="u in usuarios">
+				<div class="card-header">
+					<h4>{{u.username}}</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<label class="col-sm-4 col-xs-4">Nome: </label>
+						<span class="col-sm-8">{{u.nome}}</span>
+					</div>
+					<div class="row">
+						<label class="col-sm-4 col-xs-4">Email:</label>
+						<span class="col-sm-8 col-xs-8">{{u.email}}</span>
+					</div>
+					<div class="row">
+						<label class="col-sm-4 col-xs-4">Permissões</label>
+						<span class="col-sm-8 col-xs-8">
+							{{u.nomesRoles().join(', ')}}
+				 		</span>
+					</div>
+				</div>
+				<div class="card-footer">
+					<div class="pull-right">
+						<a href="" ng-click="callEdit(u)" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+						<a href="" ng-click="remover(u)" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+			 		</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-panel-footer">
+		</div>
+	</div>
+	<p class="alert alert-success" ng-if="sucesso != ''">${sucesso}</p>
+</div>

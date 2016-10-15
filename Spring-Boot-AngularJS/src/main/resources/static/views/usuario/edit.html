@@ -1,0 +1,53 @@
+<form novalidate ng-submit="edit()" class="form-horizontal container-fluid">
+	<div class="form-group">
+		<label for="email" class="control-label col-sm-3">
+			Email<btn-errors field="usuario.email" />
+		</label>
+		<div class="col-sm-9">
+			<input type="type" id="email" class="form-control" ng-model="usuario.email" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="nome" class="control-label col-sm-3">
+			Nome<btn-errors field="usuario.nome" />
+		</label>
+		<div class="col-sm-9">
+			<input type="type" id="nome" class="form-control" ng-model="usuario.nome" />
+		</div>
+	</div>
+	<div class="form-group">	
+		<label for="username" class="control-label col-sm-3">
+			Username<btn-errors field="usuario.username" />
+		</label>
+		<div class="col-sm-9">
+			<input type="type" id="username" class="form-control" ng-model="usuario.username" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="roles" class="control-label col-sm-3">
+			Permissões<btn-errors field="usuario.roles" />
+		</label>
+		<ol id="roles" class="col-sm-9">
+			<li class="checkbox" ng-repeat="r in allRoles">
+				<label>
+					<input type="checkbox" ng-checked="usuario.hasRole(r)" ng-click="toogleCheckRoles(r)" />{{r}}
+				</label>
+			</li>
+		</ol>
+	</div>
+	
+	<div class="form-group">
+   		<div class="col-sm-offset-2 col-sm-10">
+   			<button type="submit" class="btn btn-success">Salvar</button>
+		</div>
+	</div>
+	
+	
+	<p class="alert alert-danger">
+		<form:errors path="email" />
+		<form:errors path="nome" />
+		<form:errors path="username" />
+		<form:errors path="roles" />
+		<form:errors path="senha" />
+	</p>
+</form>
