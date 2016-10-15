@@ -179,19 +179,13 @@ app.factory('role', function($http, auth) {
 });
 
 app.factory('usuario', function($http, auth) {
-	function createUsuario(data) {
-		var userRoles = [];
-		for (var i = 0; i < data.roles.length; i++) {
-			userRoles.push({
-				nome : data.roles[i].nome
-			});
-		}
-
+	function clear() {
+		token = "";
 		usuario = {
-			username : data.username,
-			nome : data.nome,
-			email : data.email,
-			roles : userRoles,
+			username : "",
+			nome : "",
+			email : "",
+			roles : "",
 			nomesRoles : function() {
 				var roles = [];
 				for (var i = 0; i < this.roles.length; i++)
@@ -205,6 +199,41 @@ app.factory('usuario', function($http, auth) {
 				return false;
 			}
 		};
+	}
+	
+	function createUsuario(data) {
+		if (data !== undefined){
+			var userRoles = [];
+			if (data.roles !== undefined){
+				for (var i = 0; i < data.roles.length; i++) {
+					userRoles.push({
+						nome : data.roles[i].nome
+					});
+				}
+			}
+			
+			usuario = {
+				username : data.username,
+				nome : data.nome,
+				email : data.email,
+				roles : userRoles,
+				senha : data.senha,
+				nomesRoles : function() {
+					var roles = [];
+					for (var i = 0; i < this.roles.length; i++)
+						roles.push(this.roles[i].nome);
+					return roles;
+				},
+				hasRole : function(role) {
+					for (var i = 0; i < this.roles.length; i++)
+						if (this.roles[i].nome === role)
+							return true;
+					return false;
+				}
+			};
+		} else {
+			clear()
+		}
 
 		return usuario;
 	}
