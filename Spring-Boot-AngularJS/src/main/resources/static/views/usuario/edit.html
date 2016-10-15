@@ -1,7 +1,7 @@
 <form novalidate ng-submit="edit()" class="form-horizontal container-fluid">
 	<div class="form-group">
 		<label for="email" class="control-label col-sm-3">
-			Email<btn-errors field="usuario.email" />
+			Email<btn-errors field="usuario.email" errors="{{validErrors}}" />
 		</label>
 		<div class="col-sm-9">
 			<input type="type" id="email" class="form-control" ng-model="usuario.email" />
@@ -9,7 +9,7 @@
 	</div>
 	<div class="form-group">
 		<label for="nome" class="control-label col-sm-3">
-			Nome<btn-errors field="usuario.nome" />
+			Nome<btn-errors field="usuario.nome" errors="{{validErrors}}" />
 		</label>
 		<div class="col-sm-9">
 			<input type="type" id="nome" class="form-control" ng-model="usuario.nome" />
@@ -17,7 +17,7 @@
 	</div>
 	<div class="form-group">	
 		<label for="username" class="control-label col-sm-3">
-			Username<btn-errors field="usuario.username" />
+			Username<btn-errors field="usuario.username" errors="{{validErrors}}" />
 		</label>
 		<div class="col-sm-9">
 			<input type="type" id="username" class="form-control" ng-model="usuario.username" />
@@ -25,7 +25,7 @@
 	</div>
 	<div class="form-group">
 		<label for="roles" class="control-label col-sm-3">
-			Permissões<btn-errors field="usuario.roles" />
+			Permissões<btn-errors field="usuario.roles" errors="{{validErrors}}" />
 		</label>
 		<ol id="roles" class="col-sm-9">
 			<li class="checkbox" ng-repeat="r in allRoles">
@@ -37,7 +37,7 @@
 	</div>
 	
 	<div class="form-group">
-   		<div class="col-sm-offset-2 col-sm-10">
+   		<div class="col-sm-offset-3 col-sm-9">
    			<button type="submit" class="btn btn-success">Salvar</button>
 		</div>
 	</div>

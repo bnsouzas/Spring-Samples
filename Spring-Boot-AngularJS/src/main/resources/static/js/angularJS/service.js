@@ -239,9 +239,7 @@ app.factory('usuario', function($http, auth) {
 		};
 		var ret;
 
-		return $http(req).then(function(response) {
-			return response;
-		});
+		return $http(req);
 	}
 	
 	function cadastrar(usuario) {
@@ -266,9 +264,7 @@ app.factory('usuario', function($http, auth) {
 			data : username
 		};
 		
-		return $http(req).then(function(response) {
-			return response;
-		});
+		return $http(req);
 	}
 	
 	return {

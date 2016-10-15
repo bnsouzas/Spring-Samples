@@ -108,42 +108,32 @@ app.controller('usuarioController', function($scope, $location, usuario, role, p
 	
 	$scope.edit = function(){
 		var promisse = usuario.editar($scope.origUsername, $scope.usuario);
-		promisse.then(function(result) {
-			console.log(result.data);
-			if (result.data["errors"])
-				$scope.validErrors = result.data;
-			else
-				$scope.validErrors = null;
+		promisse.then(function(response) {
 			$location.path("/usuario/");
+	    }, function(response) {
+			$scope.validErrors = response.data['errors'];
+			
 	    });
 	}
 	
 	$scope.signin = function(){
-		console.log("cadastra1");
-		var promisse = usuario.cadastrar($scope.usuario);
+		var promisse = usuario.cadastrar(usuario.createUsuario($scope.usuario));
 		promisse.then(function(response) {
-			console.log("success");
 			$location.path("/login");
 	    }, function(response) {
-			console.log("erro");
-			console.log(response.data);
 			$scope.validErrors = response.data['errors'];
 			console.log($scope.validErrors);
 	    });
+		
 	}
 	
 	$scope.remover = function(paramUsuario){
 		if (confirm("Tem certeza que deseja remover o usuário " + paramUsuario.username + "?")){
 			var promisse = usuario.remover(paramUsuario.username);
-			promisse.then(function(result) {
-				console.log("3");
-				console.log(result);
-				console.log("4");
-				if (result["errors"].data)
-					$scope.validErrors = result.data['errors'];
-				else
-					$scope.validErrors = null;
+			promisse.then(function(response) {
 				$location.path("/usuario/");
+		    }, function(response) {
+				$scope.validErrors = response.data['errors'];
 		    });
 		}
 	}
