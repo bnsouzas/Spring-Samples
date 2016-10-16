@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+html, body{
+	height: 100%;
+	background-color: #B0C4DE;
+}
+
+body{
+	padding-top: 70px;
+}
+
+
+main:not(.no-style){
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 767px){
+	main:not(.no-style){
+		margin-left: 5px;
+	    margin-right: 5px;
+	    padding: 10px;
+	}
+}
+
+@media(min-width: 768px){
+	.back-width-1{
+		width: 10%;
+		margin: 0 45%;
+	}
+	
+	.back-width-2{
+		width: 20%;
+		margin: 0 40%;
+	}
+	
+	.back-width-3{
+		width: 30%;
+		margin: 0 35%;
+	}
+	
+	.back-width-4{
+		width: 40%;
+		margin: 0 30%;
+	}
+	
+	.back-width-5{
+		width: 50%;
+		margin: 0 25%;
+	}
+	
+	.back-width-6{
+		width: 60%;
+		margin: 0 20%;
+	}
+	
+	.back-width-7{
+		width: 70%;
+		margin: 0 15%;
+	}
+	.back-width-8{
+		width: 80%;
+		margin: 0 10%;
+	}
+	
+	.back-width-9{
+		width: 90%;
+		margin: 0 5%;
+	}
+	
+	.back-width-10{
+		width: 98%;
+		margin: 0 1%;
+	}
+	
+	main:not(.no-style){
+	    padding: 15px;
+	}
+}
+
+.wrap{
+	min-height: 100%;
+  	height: auto;
+  	/* Negative indent footer by its height */
+  	margin: 0 auto -50px;
+  	/* Pad bottom by footer height */
+  	padding: 0 0 50px;
+}
+
+nav > ul > li{
+	display: inline-block;
+	list-style-type: none;
+}
+@media(max-width:767px){
+	
+	#collapse-header-navbar > ul:first-child{
+		margin-bottom: 0 !important;
+	}
+	
+	#collapse-header-navbar > ul:last-child{
+		margin-top: 0 !important;
+	}
+	
+	#collapse-header-navbar > ul:not(#collapse-header-navbar ul:first-child, #collapse-header-navbar ul:last-child){
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
+}
+
+.footer-page{
+	background-color: #333;
+	height: 50px;
+	padding: 15px; 	
+}
+
+.footer-page > .languages{
+	list-style-type: none;
+	padding: 0px;
+}
+
+.footer-page > .languages > li{
+	display: inline-block;
+}
+
+.footer-page > .languages > li > a{
+	text-decoration: none;
+	color: #fff
+}
+
+.footer-page > .languages > li > a:hover{
+	text-decoration: underline;
+	color: #fff
+}
+
+table > tbody > tr > td > form{
+	display: inline-block;
+}
+
+table > tbody > tr.warning > td{
+	text-align: center;
+}
+
+.alert.alert-danger > span{
+	display: block;
+}
